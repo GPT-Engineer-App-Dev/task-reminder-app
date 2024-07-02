@@ -20,7 +20,7 @@ const Index = () => {
     <div className="space-y-4">
       <div className="flex justify-between items-center">
         <h1 className="text-3xl">Todo List</h1>
-        <Button onClick={() => navigate("/add-task")}>Add Task</Button>
+        <Button onClick={() => navigate("/add-task")} variant="success">Add Task</Button>
       </div>
       <div className="grid gap-4">
         {tasks.map(task => (
