@@ -26,6 +26,7 @@ const Layout = () => {
         <main className="flex-grow p-4 overflow-auto">
           <Outlet />
         </main>
+        <Footer />
       </div>
     </div>
   );
@@ -113,6 +114,20 @@ const SidebarNavLink = ({ to, children }) => (
   >
     {children}
   </NavLink>
+);
+
+const Footer = () => (
+  <footer className="border-t bg-muted/40 p-4 text-center text-sm">
+    <p>&copy; {new Date().getFullYear()} Todo App. All rights reserved.</p>
+    <nav className="mt-2 space-x-4">
+      <NavLink to="/privacy-policy" className="hover:underline">
+        Privacy Policy
+      </NavLink>
+      <NavLink to="/terms-of-service" className="hover:underline">
+        Terms of Service
+      </NavLink>
+    </nav>
+  </footer>
 );
 
 export default Layout;
