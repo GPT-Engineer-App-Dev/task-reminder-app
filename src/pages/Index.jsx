@@ -35,7 +35,7 @@ const Index = () => {
               <Button onClick={() => navigate(`/edit-task/${task.id}`)} variant="outline">Edit</Button>
               <AlertDialog>
                 <AlertDialogTrigger asChild>
-                  <Button variant="destructive">Delete</Button>
+                  <Button className="bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white">Delete</Button>
                 </AlertDialogTrigger>
                 <AlertDialogContent>
                   <AlertDialogHeader>
