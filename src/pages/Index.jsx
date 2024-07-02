@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
@@ -10,6 +10,8 @@ const Index = () => {
     { id: 2, title: "Sample Task 2", description: "This is another sample task" },
   ]);
 
+  const navigate = useNavigate();
+
   const deleteTask = (id) => {
     setTasks(tasks.filter(task => task.id !== id));
   };
@@ -18,7 +20,7 @@ const Index = () => {
     <div className="space-y-4">
       <div className="flex justify-between items-center">
         <h1 className="text-3xl">Todo List</h1>
-        <Button as={Link} to="/add-task">Add Task</Button>
+        <Button onClick={() => navigate("/add-task")}>Add Task</Button>
       </div>
       <div className="grid gap-4">
         {tasks.map(task => (
@@ -30,7 +32,7 @@ const Index = () => {
               <p>{task.description}</p>
             </CardContent>
             <CardFooter className="flex justify-end space-x-2">
-              <Button as={Link} to={`/edit-task/${task.id}`} variant="outline">Edit</Button>
+              <Button onClick={() => navigate(`/edit-task/${task.id}`)} variant="outline">Edit</Button>
               <AlertDialog>
                 <AlertDialogTrigger asChild>
                   <Button variant="destructive">Delete</Button>
